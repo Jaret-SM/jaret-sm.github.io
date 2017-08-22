@@ -22,30 +22,45 @@
 
 <body>
 
-<div id="smNav" class="container-fluid py-4">
-  <ul class="nav justify-content-center">
-    <a class="navbar-brand" href="/"><img class="smLogo" src="img/smLogo-White.png" alt="StrongMind Logo"/></a>
-  </ul>  
+<div id="smNav" class="py-4">
+    <a href="/"><img class="smLogo" src="img/smLogo-White.png" alt="StrongMind Logo"/></a>
 </div>
 
 
-
-<div class="jumbotron">
+<section id="homeSection" class="fullScreen d-flex align-items-center text-center">
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="display-1">Bootstrap 4</h1>
-        <h2>Testing Playground</h2>
+        <h1 class="display-3 smAnim-bt-0-50">Digital Education Platform</h1>
+        <div class="py-2"></div>
+        <h2><span class="smAnim-tb-0-50 homeSub1">Curriculum</span> / <span class="smAnim-tb-0-50 homeSub2">SIS</span> / <span class="smAnim-tb-0-50 homeSub3">LMS</span> / <span class="smAnim-tb-0-50 homeSub4">PSP</span></h2>
+        <a href="#section2" class="btn btn-outline-light btn-lg mt-5 smAnim-0">Start</a>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section id="section2" class="fullScreen d-flex align-items-center">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="display-4 smAnim-bt-0-50">Award-Winning<br/>Digital Curriculum</h2>
+        <div class="py-4"><div class="smDivider"></div></div>
+        <p class="text-justify">Unlock the magic of learning, improve academic outcomes and help your students become college and career ready with StrongMind Digital Curriculum.</p>
+        <a href="#" class="btn btn-outline-light btn-lg mt-5 smAnim-0">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="js/anim.js"></script>
+
 </body>
 
 </html>
