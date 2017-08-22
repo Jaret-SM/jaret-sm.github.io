@@ -1,14 +1,72 @@
+/* GLOBAL STYLES */
+body {
+  background-color: #343741;
+  background-image: url("../img/smBG-triangleGray.jpg");
+  background-attachment: fixed;
+}
+
 /* TEXT STYLES */
+p {
+  color: #fff;
+  font-size: 1.25em;
+}
+
 h1 {
-  color: #bf0d3e;
+  color: #fff;
+}
+
+h2 {
+  color: #626776;
+}
+
+/* ANIMATION STYLES */
+.smAnim-bt-0-50 {
+  position: relative;
+  opacity : 0;
+  top: 50px;
+}
+.smAnim-bt-1-50 {
+  position: relative;
+  opacity: 1;
+  top: 50px;
+}
+.smAnim-tb-0-50 {
+  position: relative;
+  opacity : 0;
+  bottom: 50px;
+}
+.smAnim-0 {
+  position: relative;
+  opacity: 0;
+}
+
+/* BUTTONS */
+.btn-outline-light:hover {
+  color: #000;
 }
 
 /* IMAGE STYLES */
 .smLogo {
-  max-width: 200px;
+  max-width: 400px;
 }
 
 /* CONTAINER STYLES */
 #smNav {
-  background-color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+}
+.fullScreen {
+  height: 100vh;
+}
+.smDivider {
+  height: 1px;
+  width: 100%;
+  background-color: #bf0d3e;
+}
+#homeSection {
+}
+#section2 {
+
 }
