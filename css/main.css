@@ -2,3 +2,13 @@
 h1 {
   color: #bf0d3e;
 }
+
+/* IMAGE STYLES */
+.smLogo {
+  max-width: 200px;
+}
+
+/* CONTAINER STYLES */
+#smNav {
+  background-color: rgba(0,0,0,1);
+}
