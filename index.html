@@ -10,7 +10,9 @@
 <!-- CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="css/lightbox.min.css" />
 <link rel="stylesheet" href="css/main.css" />
+
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
@@ -23,7 +25,7 @@
 <body>
 
 <div id="smNav" class="py-4">
-    <a href="/"><img class="smLogo" src="img/smLogo-White.png" alt="StrongMind Logo"/></a>
+    <a href="/"><img class="smLogo" src="images/smLogo-White.png" alt="StrongMind Logo"/></a>
 </div>
 
 
@@ -31,9 +33,9 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="display-3 smAnim-bt-0-50">Digital Education Platform</h1>
+        <h1 class="display-3 smAnim-bt-0-50 text-white">Digital Education Platform</h1>
         <div class="py-2"></div>
-        <h2><span class="smAnim-tb-0-50 homeSub1">Curriculum</span> / <span class="smAnim-tb-0-50 homeSub2">SIS</span> / <span class="smAnim-tb-0-50 homeSub3">LMS</span> / <span class="smAnim-tb-0-50 homeSub4">PSP</span></h2>
+        <h2 class="text-darkgray"><span class="smAnim-tb-0-50 homeSub1">Curriculum</span> / <span class="smAnim-tb-0-50 homeSub2">SIS</span> / <span class="smAnim-tb-0-50 homeSub3">LMS</span> / <span class="smAnim-tb-0-50 homeSub4">PSP</span></h2>
         <a href="#section2" class="btn btn-outline-light btn-lg mt-5 smAnim-0">Start</a>
       </div>
     </div>
@@ -43,11 +45,18 @@
 <section id="section2" class="fullScreen d-flex align-items-center">
   <div class="container mt-5">
     <div class="row">
+      <div class="col-lg-6 pr-5">      
+        <h2 class="display-4 smAnim-bt-0-50 text-white">Award-Winning<br/>Digital Curriculum</h2>
+        <div class="py-4"><div class="smDivider smAnim-0"></div></div>
+        <p class="text-justify smAnim-tb-0-50 text-darkgray">Unlock the magic of learning, improve academic outcomes and help your students become college and career ready with StrongMind Digital Curriculum.</p>
+        <a href="https://www.strongmind.com/solutions/courseware/" class="btn btn-outline-light btn-lg mt-5 smAnim-0">Learn More</a>
+      </div>
       <div class="col-lg-6">
-        <h2 class="display-4 smAnim-bt-0-50">Award-Winning<br/>Digital Curriculum</h2>
-        <div class="py-4"><div class="smDivider"></div></div>
-        <p class="text-justify">Unlock the magic of learning, improve academic outcomes and help your students become college and career ready with StrongMind Digital Curriculum.</p>
-        <a href="#" class="btn btn-outline-light btn-lg mt-5 smAnim-0">Learn More</a>
+        <div class="s2ImgContainer">
+          <a href="images/smSS-1.jpg" data-lightbox="smSS1"><img class="s2Img1 smAnim-lr-0-300" src="images/smSS-1.jpg" alt="StrongMind Curriculum Screenshot" /></a>
+          <a href="images/smSS-2.jpg" data-lightbox="smSS1"><img class="s2Img2 smAnim-lr-0-300" src="images/smSS-2.jpg" alt="StrongMind Curriculum Screenshot" /></a>
+          <a href="images/smSS-3.jpg" data-lightbox="smSS1"><img class="s2Img3 smAnim-lr-0-300" src="images/smSS-3.jpg" alt="StrongMind Curriculum Screenshot" /></a>
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +68,7 @@
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="js/lightbox.min.js"></script>
 <script src="js/anim.js"></script>
 
 </body>
