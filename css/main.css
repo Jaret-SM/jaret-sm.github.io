@@ -63,7 +63,7 @@ p {
   outline: 2px solid #fff;
 }
 .s3ImgContainer {
-  min-height: 450px;
+  min-height: 400px;
 }
 .s3ImgContainer img {
   position: absolute;
@@ -96,6 +96,10 @@ p {
 }
 #section3 {
   background-image: url("../images/smBG-triangleGraySIS.jpg");
+  background-attachment: fixed;
+}
+#section4 {
+  background-image: url("../images/smBG-triangleGrayLMS.jpg");
   background-attachment: fixed;
 }
 .fullScreen {
