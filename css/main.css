@@ -1,13 +1,13 @@
-/* GLOBAL STYLES */
-body {
-  background-color: #343741;
-  background-image: url("../images/smBG-triangleGray.jpg");
-  background-attachment: fixed;
-}
-
 /* TEXT STYLES */
 p {
   font-size: 1.25em;
+}
+.s3ImgContainer p:hover {
+  cursor: pointer;
+}
+.s3ImgContainer p {
+  margin-bottom: 0px;
+  height: 50px;
 }
 
 /* COLORS */
@@ -15,12 +15,39 @@ p {
   color: #fff;
 }
 .text-darkgray {
-  color: #626776;
+  color: #757b8c;
+}
+.text-smr {
+  color: #bf0d3e;
 }
 
 /* BUTTONS */
 .btn-outline-light:hover {
   color: #000;
+}
+.btn-outline-smr {
+  border-color: #bf0d3e;
+  color: #bf0d3e;
+}
+.btn-outline-smr:hover {
+  background-color: #bf0d3e;
+  color: #fff;
+}
+.btn-outline-smy {
+  border-color: #fdb515;
+  color: #fdb515;
+}
+.btn-outline-smy:hover {
+  background-color: #fdb515;
+  color: #fff;
+}
+.btn-outline-light-25 {
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.25);
+}
+.btn-outline-light-25:hover {
+  border-color: rgba(255,255,255,1);
+  color: rgba(255,255,255,1);
 }
 
 /* IMAGE STYLES */
@@ -32,6 +59,24 @@ p {
   max-height: 300px;
   box-shadow: 5px 5px 25px rgba(0,0,0,.4);
 }
+.s2ImgContainer img:hover {
+  outline: 2px solid #fff;
+}
+.s3ImgContainer {
+  min-height: 450px;
+}
+.s3ImgContainer img {
+  position: absolute;
+  -ms-transform: scale(0.7,0.7); /* IE 9 */
+  -webkit-transform: scale(0.7,0.7); /* Safari */
+  transform: scale(0.7,0.7);
+  -webkit-filter: hue-rotate(-45deg); /* Safari */
+  filter: hue-rotate(-45deg);
+}
+.s3imgGreen {
+  -webkit-filter: hue-rotate(0deg) !important; /* Safari */
+  filter: hue-rotate(0deg) !important;
+}
 
 /* CONTAINER STYLES */
 #smNav {
@@ -40,8 +85,17 @@ p {
   text-align: center;
   width: 100%;
 }
+#bottomNav {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
 #section2 {
-  background-image: url("../images/smBG-triangleGray2.jpg");
+  background-image: url("../images/smBG-triangleGray3.jpg");
+  background-attachment: fixed;
+}
+#section3 {
+  background-image: url("../images/smBG-triangleGraySIS.jpg");
   background-attachment: fixed;
 }
 .fullScreen {
@@ -82,4 +136,14 @@ p {
   position: relative;
   opacity: 0;
   left: 100px;
+}
+
+/* GLOBAL STYLES */
+body {
+  background-color: #343741;
+  background-image: url("../images/smBG-triangleGray.jpg");
+  background-attachment: fixed;
+}
+.abs {
+  position: absolute;
 }
