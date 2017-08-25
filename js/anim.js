@@ -3,16 +3,19 @@ function randomizeValues(max, min) {
     return (Math.random() * max) + min;
   }
 };
-function randomize250to1() {
+function moveImgLeftRan() {
   return randomizeValues(250,1);
 }
-function randomize1to250() {
+function moveImgLeftRan2() {
+  return (Math.random() * 50) + -20;
+}
+function moveTextLeftRan() {
   return randomizeValues(1,250);
 }
-function randomize20to1() {
+function moveTextRotateRan() {
   return randomizeValues(20,1);
 }
-function randomize360to1() {
+function moveImgRotateRan() {
   return randomizeValues(360,1);
 }
 
@@ -74,151 +77,34 @@ section3TL.to('.s3SubText', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInO
 section3TL.to('#section3 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section3TL.to('#section3 a, .section3Reload', 1, {opacity: '1', ease:Power2.easeInOut});
 var section3TL2 = new TimelineMax({});
-section3TL2.fromTo('.s3Img1', 0.8, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '0px',
-  opacity: 0
-}, {
-  left: '5px',
-  top: '0px',
-  rotation: 0,
-  opacity: 1,
-  delay: 2,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text1', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '50px',
-  opacity: 0
-}, {
-  left: '55px',
-  top: '10px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Img2', 0.7, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '100px',
-  opacity: 0
-}, {
-  left: '20px',
-  top: '50px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text2', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '150px',
-  opacity: 0
-}, {
-  left: '70px',
-  top: '60px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Img3', 0.6, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '200px',
-  opacity: 0
-}, {
-  left: '10px',
-  top: '100px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text3', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '60px',
-  top: '110px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Img4', 0.5, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '-20px',
-  top: '150px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text4', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '30px',
-  top: '160px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Img5', 0.4, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '-5px',
-  top: '200px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text5', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '45px',
-  top: '210px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Img6', 0.3, {
-  rotation: randomize360to1(),
-  left: randomize250to1(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '20px',
-  top: '250px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
-section3TL2.fromTo('.s3Text6', 0.25, {
-  rotation: randomize20to1(),
-  left: randomize1to250(),
-  top: '250px',
-  opacity: 0
-}, {
-  left: '70px',
-  top: '260px',
-  rotation: 0,
-  opacity: 1,
-  ease:Back.easeInOut
-});
+for (var i = 1; i <= 6; i++) {
+  var s3randomValue = moveImgLeftRan2();
+	section3TL2.fromTo('.s3Img'+i, 0.8 - ((i-1) * 0.1), {
+		rotation: moveImgRotateRan(),
+		left: moveImgLeftRan(),
+		top: ((i-1)*50)+'px',
+		opacity: 0
+	}, {
+		left: s3randomValue,
+		top: ((i-1)*50)+'px',
+		rotation: 0,
+		opacity: 1,
+		ease:Back.easeInOut
+	});
+	section3TL2.fromTo('.s3Text'+i, 0.25, {
+    rotation: moveTextRotateRan(),
+		left: moveTextLeftRan(),
+		top: ((i-1)*50)+'px',
+		opacity: 0
+	}, {
+		left: s3randomValue + 50 + 'px',
+		top: ((i-1)*50+8)+'px',
+		rotation: 0,
+		opacity: 1,
+		ease:Back.easeInOut
+	});
+};
+
 var section3TL3 = new TimelineMax({});
 function setSpeedLeftEasing(speed,start,end,easing) {
   section3TL3.to('.s3Img1', speed, {left: start, ease:easing});
@@ -279,7 +165,7 @@ $('.s3ImgContainer p').hover(function() {
   TweenMax.to(currentItemHovered, 0.25, {scale: 1, rotation:randomizeValues(20,-10), ease:Power2.easeInOut});
   TweenMax.to(this, 0.25, {rotation:randomizeValues(10,-5), ease:Power2.easeInOut});
   currentItemHovered.addClass('s3imgGreen');
-  if ( section3TL2.time() >= 6.5 ) {
+  if ( section3TL2.time() >= 4 ) {
     section3TL3.play().timeScale(4);
   }
 }, function() {
@@ -328,23 +214,14 @@ var s3dist = $('#section3').offset().top - 20;
 var s4dist = $('#section4').offset().top - 20;
 
 $window.scroll(function() {
-  if ( $window.scrollTop() >= s2dist ) {
-    section2TL.play();
-    section2TL2.play();
-  } else {
-    section2TL.reverse();
-    section2TL2.reverse();
+  function animateSection(sections, dist) {
+    if($window.scrollTop() >= dist) {
+      sections.forEach(function(s) { s.play(); });
+    } else {
+      sections.forEach(function(s) { s.reverse(); });
+    }
   }
-  if ( $window.scrollTop() >= s3dist ) {
-    section3TL.play();
-    section3TL2.play();
-  } else {
-    section3TL.reverse();
-    section3TL2.reverse();
-  }
-  if ( $window.scrollTop() >= s4dist ) {
-    section4TL.play();
-  } else {
-    section4TL.reverse();
-  }
+  animateSection([section2TL, section2TL2], s2dist);
+  animateSection([section3TL, section3TL2], s3dist);
+  animateSection([section4TL], s4dist);
 });
