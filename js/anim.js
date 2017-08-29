@@ -5,22 +5,27 @@ function randomizeValues(max, min) {
 };
 function moveImgLeftRan() {
   return randomizeValues(250,1);
-}
+};
 function moveImgLeftRan2() {
   return (Math.random() * 50) + -20;
-}
+};
 function moveTextLeftRan() {
   return randomizeValues(1,250);
-}
+};
 function moveTextRotateRan() {
   return randomizeValues(20,1);
-}
+};
 function moveImgRotateRan() {
   return randomizeValues(360,1);
-}
+};
+function checkHover(obj) {
+  if ( obj.hasClass('stopHover') ) {
+    obj.removeClass('stopHover');
+  }
+};
 
 
-$('a[href^=\\#]').on('click', function(event){
+$('a[href^=\\#section]').on('click', function(event){
 	event.preventDefault();
 	$('html,body').animate({
 		scrollTop: $(this.hash).offset().top
@@ -77,6 +82,7 @@ section3TL.to('.s3SubText', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInO
 section3TL.to('#section3 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section3TL.to('#section3 a, .section3Reload', 1, {opacity: '1', ease:Power2.easeInOut});
 var section3TL2 = new TimelineMax({});
+section3TL2.to('.s3Img1', 2, { delay: 2 });
 for (var i = 1; i <= 6; i++) {
   var s3randomValue = moveImgLeftRan2();
 	section3TL2.fromTo('.s3Img'+i, 0.8 - ((i-1) * 0.1), {
@@ -104,7 +110,6 @@ for (var i = 1; i <= 6; i++) {
 		ease:Back.easeInOut
 	});
 };
-
 var section3TL3 = new TimelineMax({});
 function setSpeedLeftEasing(speed,start,end,easing) {
   section3TL3.to('.s3Img1', speed, {left: start, ease:easing});
@@ -121,7 +126,6 @@ function setSpeedLeftEasing(speed,start,end,easing) {
   section3TL3.to('.s3Text6', speed, {left: end, ease:easing});
 }
 setSpeedLeftEasing(0.5,'0px','50px',Back.easeInOut);
-
 var section3TL4 = new TimelineMax({});
 section3TL4.to('#section3 h2', 0.5, {left: '50px', opacity: '0', ease:Power2.easeInOut});
 section3TL4.to('.s3SubText', 0.5, {left: '50px', opacity: '0', onComplete:replaceText, ease:Power2.easeInOut});
@@ -133,25 +137,55 @@ section4TL.to('#section4 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOu
 section4TL.to('.s4SubText', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section4TL.to('#section4 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section4TL.to('#section4 a, .section3Reload', 1, {opacity: '1', ease:Power2.easeInOut});
-
+var section4TL2 = new TimelineMax({delay: 2, onComplete:checkHover, onCompleteParams:[$('.s4box')]});
+for (var i = 1; i <= 4; i++) {
+	section4TL2.fromTo('.s4icon'+i, 0.5, {
+		top: '-80px',
+		opacity: 0,
+    rotation: moveImgRotateRan()
+	}, {
+    top: '0px',
+		opacity: 1,
+    rotation: 0,
+		ease:Back.easeInOut
+	});
+	section4TL2.fromTo('.s4text'+i, 1, {
+    top: '-20px',
+		opacity: 0
+	}, {
+    top: '0px',
+		opacity: 1,
+		ease:Back.easeInOut
+	});
+};
+var section4TL3 = new TimelineMax({delay: 2});
+section4TL3.fromTo('.s4icon1', 3, {rotation: 360}, {rotation: 0, yoyo: true, repeat: -1, ease:Back.easeInOut});
+section4TL3.fromTo('.s4icon2', 1, {scaleX: 1}, {scaleX: 1.25, yoyo: true, repeat: -1, ease:Back.easeInOut});
+section4TL3.fromTo('.s4icon3', 1.5, {color: '#5bc6cc'}, {color: '#21c92d', scale:1.1, yoyo: true, repeat: -1, ease:Back.easeInOut});
+section4TL3.fromTo('.s4icon4', 2, {rotationY:0}, {rotationY:360, repeat: -1, ease:Linear.easeNone});
 
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
   section3TL, section3TL2, section3TL3, section3TL4,
-  section4TL
+  section4TL, section4TL2, section4TL3
 ];
 for ( i = 0; i < allTimelines.length; i++ ) {
   allTimelines[i].pause();
   allTimelines[i].timeScale(2);
-}
+};
 
 
 var currentItemHovered;
 
-$('.animButton').hover(function() {
-  buttonTL.play();
+$('#homeSection a').hover(function() {
+  TweenMax.to(this, 0.25, {bottom: '5px', ease:Power2.easeInOut});
 }, function() {
-  buttonTL.stop();
+  TweenMax.to(this, 0.25, {bottom: '0px', ease:Power2.easeInOut});
+});
+$('.animButton').hover(function() {
+  buttonTL.resume();
+}, function() {
+  buttonTL.pause();
 });
 $('.s2ImgContainer').hover(function() {
   if ( section2TL2.time() >= 3 ) {
@@ -174,6 +208,16 @@ $('.s3ImgContainer p').hover(function() {
   currentItemHovered.removeClass('s3imgGreen');
   section3TL3.reverse().timeScale(4);
 });
+$('.s4box').hover(function() {
+  section4TL3.timeScale(0.5);
+  TweenMax.to($(this).find('p'), 0.5, {scale: 1.2, ease:Power2.easeInOut});
+}, function() {
+  section4TL3.timeScale(2);
+  TweenMax.to($(this).find('p'), 0.5, {scale: 1, ease:Power2.easeInOut});
+
+});
+
+
 
 
 var section3HoverText = {
@@ -223,5 +267,5 @@ $window.scroll(function() {
   }
   animateSection([section2TL, section2TL2], s2dist);
   animateSection([section3TL, section3TL2], s3dist);
-  animateSection([section4TL], s4dist);
+  animateSection([section4TL, section4TL2, section4TL3], s4dist);
 });

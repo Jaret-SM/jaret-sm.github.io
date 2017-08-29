@@ -9,6 +9,16 @@ p {
   margin-bottom: 0px;
   height: 50px;
 }
+a {
+  color: #fdb515;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+a:focus {
+  outline: 0;
+}
 
 /* COLORS */
 .text-white {
@@ -19,6 +29,9 @@ p {
 }
 .text-smr {
   color: #bf0d3e;
+}
+.text-smb {
+  color: #5bc6cc;
 }
 
 /* BUTTONS */
@@ -77,6 +90,21 @@ p {
   -webkit-filter: hue-rotate(0deg) !important; /* Safari */
   filter: hue-rotate(0deg) !important;
 }
+.sicon {
+  font-size: 3em;
+}
+.s4icon1 {
+  color: #fdb515;
+}
+.s4icon2 {
+  color: #fff;
+}
+.s4icon3 {
+  color: #5bc6cc;
+}
+.s4icon4 {
+  color: #bf0d3e;
+}
 
 /* CONTAINER STYLES */
 #smNav {
@@ -109,6 +137,27 @@ p {
   height: 1px;
   width: 100%;
   background-color: #bf0d3e;
+}
+.s4box {
+  padding-top: 15px;
+}
+.s4box:hover {
+  outline: 1px solid #fff;
+  cursor: pointer;
+}
+.s4box > a {
+  color: #fff;
+}
+.s4box:hover > a {
+  color: #fff;
+}
+.inlineBox {
+  overflow: auto;
+  background: rgba(255,255,255,0);
+  padding: 20px;
+  width: 750px;
+  max-width: 100%;
+  border-radius: 6px;
 }
 
 /* ANIMATION STYLES */
@@ -150,4 +199,7 @@ body {
 }
 .abs {
   position: absolute;
+}
+.stopHover {
+  pointer-events: none;
 }
