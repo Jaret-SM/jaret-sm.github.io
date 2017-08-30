@@ -3,6 +3,9 @@ function randomizeValues(max, min) {
     return (Math.random() * max) + min;
   }
 };
+function randomizeValuesOnce(max, min) {
+  return (Math.random() * max) + min;
+};
 function moveImgLeftRan() {
   return randomizeValues(250,1);
 };
@@ -175,6 +178,45 @@ section5TL.to('#section5 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOu
 section5TL.to('#section5 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 a', 1, {opacity: '1', ease:Power2.easeInOut});
+var portalParticle;
+var numParticle = 0;
+function spawnParticles(amount) {
+  for (i = 0; i <= amount; i++) {
+    portalParticle = '<div class="portalParticle particle' + numParticle + '"></div>';
+    $('.portalBox').append(portalParticle);
+    numParticle++;
+  };
+};
+var timelineNumber = 2;
+var sectionName;
+var particleTimelineArray = [];
+function moveParticles() {
+  for (i = 0; i <= numParticle; i++) {
+    sectionName = 'section5TL' + timelineNumber;
+    sectionName = new TimelineMax({repeat: -1, delay: 2});
+    sectionName.pause();
+    sectionName.fromTo('.particle'+ i, 1 + i / 2, {
+      opacity: 0
+    }, {
+      scale: randomizeValues(2,0.5),
+      top: '+=' + randomizeValuesOnce(300,-150) + 'px',
+      left: '+=' + randomizeValuesOnce(250,-100) + 'px',
+      opacity: randomizeValues(1,0.2),
+      ease:Power4.easeOut
+    });
+    sectionName.to('.particle' + i, 1, {
+      top: '+=' + (moveImgLeftRan2()) + 'px',
+      left: '+=' + (moveImgLeftRan2() * 2) + 'px',
+      scale: 0.5,
+      opacity: 0,
+      ease:Power2.easeInOut
+    });
+    particleTimelineArray.push(sectionName);
+    timelineNumber++;
+  };
+};
+spawnParticles(50);
+moveParticles();
 
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
@@ -185,7 +227,6 @@ for ( i = 0; i < allTimelines.length; i++ ) {
   allTimelines[i].pause();
   allTimelines[i].timeScale(2);
 };
-
 
 var currentItemHovered;
 
@@ -280,4 +321,5 @@ $window.scroll(function() {
   animateSection([section3TL, section3TL2], s3dist);
   animateSection([section4TL, section4TL2, section4TL3], s4dist);
   animateSection([section5TL], s5dist);
+  animateSection(particleTimelineArray, s5dist);
 });

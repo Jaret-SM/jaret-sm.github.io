@@ -130,6 +130,10 @@ a:focus {
   background-image: url("../images/smBG-triangleGrayLMS.jpg");
   background-attachment: fixed;
 }
+#section5 {
+  background-image: url("../images/smBG-triangleGrayPSP.jpg");
+  background-attachment: fixed;
+}
 .fullScreen {
   height: 100vh;
 }
@@ -158,6 +162,17 @@ a:focus {
   width: 750px;
   max-width: 100%;
   border-radius: 6px;
+}
+.portalParticle {
+  width: 5px;
+  height: 5px;
+  top: 40%;
+  left: 30%;
+  background-color: #fff;
+  position: absolute;
+  /*-webkit-animation: scale 1s infinite linear;
+  animation: scale 1s infinite linear;*/
+  border-radius: 20px;
 }
 
 /* ANIMATION STYLES */
@@ -189,6 +204,20 @@ a:focus {
   position: relative;
   opacity: 0;
   left: 100px;
+}
+@-webkit-keyframes scale {
+		0% {
+				-webkit-transform: scale(1,1);
+        transform: scale(1,1);
+		}
+		50% {
+				-webkit-transform: scale(1.5,1.5);
+        transform: scale(1.5,1.5);
+		}
+    100% {
+      -webkit-transform: scale(1,1);
+      transform: scale(1,1);
+    }
 }
 
 /* GLOBAL STYLES */
