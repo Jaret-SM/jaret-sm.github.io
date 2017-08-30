@@ -22,8 +22,14 @@ function checkHover(obj) {
   if ( obj.hasClass('stopHover') ) {
     obj.removeClass('stopHover');
   }
+  else {
+    obj.addClass('stopHover');
+  }
 };
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
 
 $('a[href^=\\#section]').on('click', function(event){
 	event.preventDefault();
@@ -39,8 +45,8 @@ homeTL.staggerTo(['.homeSub1','.homeSub2','.homeSub3','.homeSub4'], 0.5, {
   opacity: '1',
   ease:Back.easeOut
 }, 0.2);
-homeTL.to('#homeSection h1', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
-homeTL.to('#homeSection a', 1, {opacity: '1', ease:Power2.easeInOut});
+homeTL.to('#section1 h1', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
+homeTL.to('#section1 a', 1, {opacity: '1', ease:Power2.easeInOut});
 
 var buttonTL = new TimelineMax({repeat: -1});
 buttonTL.to('.animButton', 0.5, {width: '10%', ease:Power2.easeInOut});
@@ -164,10 +170,16 @@ section4TL3.fromTo('.s4icon2', 1, {scaleX: 1}, {scaleX: 1.25, yoyo: true, repeat
 section4TL3.fromTo('.s4icon3', 1.5, {color: '#5bc6cc'}, {color: '#21c92d', scale:1.1, yoyo: true, repeat: -1, ease:Back.easeInOut});
 section4TL3.fromTo('.s4icon4', 2, {rotationY:0}, {rotationY:360, repeat: -1, ease:Linear.easeNone});
 
+var section5TL = new TimelineMax({});
+section5TL.to('#section5 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
+section5TL.to('#section5 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
+section5TL.to('#section5 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
+section5TL.to('#section5 a', 1, {opacity: '1', ease:Power2.easeInOut});
+
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
   section3TL, section3TL2, section3TL3, section3TL4,
-  section4TL, section4TL2, section4TL3
+  section4TL, section4TL2, section4TL3, section5TL
 ];
 for ( i = 0; i < allTimelines.length; i++ ) {
   allTimelines[i].pause();
@@ -177,7 +189,7 @@ for ( i = 0; i < allTimelines.length; i++ ) {
 
 var currentItemHovered;
 
-$('#homeSection a').hover(function() {
+$('#section1 a').hover(function() {
   TweenMax.to(this, 0.25, {bottom: '5px', ease:Power2.easeInOut});
 }, function() {
   TweenMax.to(this, 0.25, {bottom: '0px', ease:Power2.easeInOut});
@@ -218,8 +230,6 @@ $('.s4box').hover(function() {
 });
 
 
-
-
 var section3HoverText = {
   'newText1': 'We make it a breeze to request different types of documentation from previous schools. Our transcript entry tool saves time on data entry and reduces human error by automatically populating entry fields based on probability by school.',
   'newText2': 'Automatically suggest course schedules based on student and teacher data as well as graduation requirements for specific diploma types, and make individual changes when needed.',
@@ -256,6 +266,7 @@ var $window = $(window);
 var s2dist = $('#section2').offset().top - 20;
 var s3dist = $('#section3').offset().top - 20;
 var s4dist = $('#section4').offset().top - 20;
+var s5dist = $('#section5').offset().top - 20;
 
 $window.scroll(function() {
   function animateSection(sections, dist) {
@@ -268,4 +279,5 @@ $window.scroll(function() {
   animateSection([section2TL, section2TL2], s2dist);
   animateSection([section3TL, section3TL2], s3dist);
   animateSection([section4TL, section4TL2, section4TL3], s4dist);
+  animateSection([section5TL], s5dist);
 });
