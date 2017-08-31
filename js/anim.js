@@ -178,21 +178,18 @@ section5TL.to('#section5 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOu
 section5TL.to('#section5 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 a', 1, {opacity: '1', ease:Power2.easeInOut});
-var portalParticle;
-var numParticle = 0;
-function spawnParticles(amount) {
-  for (i = 0; i <= amount; i++) {
-    portalParticle = '<div class="portalParticle particle' + numParticle + '"></div>';
+var numParticle = 50;
+function spawnParticles() {
+  for (i = 0; i < numParticle; i++) {
+    var portalParticle = '<div class="portalParticle particle' + i + '"></div>';
     $('.portalBox').append(portalParticle);
-    numParticle++;
   };
 };
-var timelineNumber = 2;
-var sectionName;
 var particleTimelineArray = [];
 function moveParticles() {
-  for (i = 0; i <= numParticle; i++) {
-    sectionName = 'section5TL' + timelineNumber;
+  var timelineNumber = 2;
+  for (i = 0; i < numParticle; i++) {
+    var sectionName = 'section5TL' + timelineNumber;
     sectionName = new TimelineMax({repeat: -1, delay: 2});
     sectionName.pause();
     sectionName.fromTo('.particle'+ i, 1 + i / 2, {
@@ -215,7 +212,7 @@ function moveParticles() {
     timelineNumber++;
   };
 };
-spawnParticles(50);
+spawnParticles();
 moveParticles();
 
 var allTimelines = [
