@@ -163,6 +163,10 @@ a:focus {
   background-image: url("../images/smBG-triangleGrayPSP.jpg");
   background-attachment: fixed;
 }
+#section6 {
+  background-image: url("../images/smBG-triangleGray2.jpg");
+  background-attachment: fixed;
+}
 .fullScreen {
   height: 100vh;
 }

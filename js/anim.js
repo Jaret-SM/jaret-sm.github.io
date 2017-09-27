@@ -30,9 +30,6 @@ function checkHover(obj) {
   if ( obj.hasClass('stopHover') ) {
     obj.removeClass('stopHover');
   }
-  else {
-    obj.addClass('stopHover');
-  }
 };
 
 $(function () {
