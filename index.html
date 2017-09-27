@@ -33,7 +33,7 @@
 </div>
 
 <div id="bottomNav" class="m-4" data-toggle="tooltip" data-placement="left" title="Contact StrongMind">
-  <a href="https://www.strongmind.com/contact-us/" class="btn btn-outline-light-25 btn-lg mt-5" target="_blank">
+  <a href="#section6" class="btn btn-outline-light-25 btn-lg mt-5" target="_blank">
     <span class="oi oi-envelope-closed" title="envelope" aria-hidden="true"></span>
   </a>
 </div>
@@ -219,21 +219,63 @@
 <section id="section5" class="fullScreen d-flex align-items-center">
   <div class="container mt-5">
     <div class="row">
-      <div class="col-lg-6 pr-5">
+      <div class="col-lg-6 pr-2">
         <h2 class="display-4 smAnim-bt-0-50 text-white">Parent Student Portal</h2>
         <div class="smDivider smAnim-0 my-4"></div>
         <p class="text-justify smAnim-tb-0-50 text-darkgray">Keep your school community connected and in-the-know with our progressive communications and reporting hub. It integrates with our SIS to instantly and automatically deliver information including attendance, grades, course progress, notifications and more.</p>
-        <a href="https://www.strongmind.com/solutions/integrated-solution/" class="btn btn-outline-light btn-lg mt-3 smAnim-0" target="_blank">Learn More</a>
-        <a href="https://vimeo.com/144561268" class="btn btn-outline-smy btn-lg mt-3 ml-2 smAnim-0" data-lity>
+        <a href="#psp" class="btn btn-outline-light mt-3 parentPortalBtn s5portBtn">Parent</a>
+        <a href="#psp" class="btn btn-outline-light mt-3 studentPortalBtn ml-2 s5portBtn">Student</a>
+        <a href="https://www.strongmind.com/solutions/integrated-solution/" class="btn btn-outline-light btn-lg mt-3 smAnim-0 ml-2 s5btn" target="_blank">Learn More</a>
+        <a href="https://vimeo.com/144561268" class="btn btn-outline-smy btn-lg mt-3 ml-2 smAnim-0 s5btn" data-lity>
           <span class="oi oi-play-circle" title="play video" aria-hidden="true"></span> Play
         </a>
       </div>
-      <div class="col-lg-6 portalBox">
+      <div class="col-lg-6 portalBox text-center d-flex align-items-center">
+        <svg class="svgBox" width="500" height="500" style="position: absolute;">
+
+        </svg>
+        <ul class="list-unstyled studentList text-white">
+          <li class="firstSL">STUDENT PORTAL</li>
+          <li class="studentListItem">Instantly Access Grades</li>
+          <li class="studentListItem">Contact Teachers</li>
+          <li class="studentListItem">Read School Announcements</li>
+          <li class="studentListItem">Connect with Classmates</li>
+        </ul>
+        <ul class="list-unstyled parentList text-white">
+          <li class="firstPL">PARENT PORTAL</li>
+          <li class="parentListItem">Notification Alerts</li>
+          <li class="parentListItem">Attendance Tracking</li>
+          <li class="parentListItem">Course Progress and Grades</li>
+          <li class="parentListItem">Connect with Teachers</li>
+        </ul>
       </div>
       <div class="col text-center">
-        <a href="#section6" class="btn btn-outline-light btn-lg mt-5 smAnim-0 animButton">
+        <a href="#section6" class="btn btn-outline-light btn-lg mt-5 smAnim-0 animButton s5btn">
           <span class="oi oi-arrow-bottom" title="arrow bottom" aria-hidden="true"></span>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="section6" class="fullScreen d-flex align-items-center">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="display-4 smAnim-bt-0-50 text-white text-center">Ready to Get Started?</h2>
+        <div class="smDivider smAnim-0 my-4"></div>
+        <p class="text-center smAnim-tb-0-50 text-darkgray">We want to be your trusted digital curriculum provider, and can’t wait to talk to you.</p>
+        <form class="smForm mt-4">
+          <div class="form-inline align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Email</label>
+              <input type="text" class="form-control-lg mb-2 mb-sm-0" id="inlineFormInput" placeholder="Email">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-lg btn-outline-smy">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

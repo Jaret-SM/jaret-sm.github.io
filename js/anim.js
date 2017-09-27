@@ -6,6 +6,11 @@ function randomizeValues(max, min) {
 function randomizeValuesOnce(max, min) {
   return (Math.random() * max) + min;
 };
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 function moveImgLeftRan() {
   return randomizeValues(250,1);
 };
@@ -41,6 +46,12 @@ $('a[href^=\\#section]').on('click', function(event){
 	}, 800);
 });
 
+function makeSVG(tag, attrs) {
+  var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (var k in attrs)
+    el.setAttribute(k, attrs[k]);
+  return el;
+};
 
 var homeTL = new TimelineMax({});
 homeTL.staggerTo(['.homeSub1','.homeSub2','.homeSub3','.homeSub4'], 0.5, {
@@ -177,33 +188,51 @@ var section5TL = new TimelineMax({});
 section5TL.to('#section5 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section5TL.to('#section5 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
-section5TL.to('#section5 a', 1, {opacity: '1', ease:Power2.easeInOut});
+section5TL.to('.s5btn, .s5portBtn', 1, {opacity: '1', ease:Power2.easeInOut});
 var numParticle = 50;
 function spawnParticles() {
   for (i = 0; i < numParticle; i++) {
     var portalParticle = '<div class="portalParticle particle' + i + '"></div>';
+    //var portalLines = makeSVG('line', {x1: 100, y1: 50, x2: 350, y2: 50, stroke: '#fff', 'stroke-width': 0, id: 'line'+i});
     $('.portalBox').append(portalParticle);
+    //$('.svgBox').append(portalLines);
   };
 };
+/*function drawLine() {
+  for (i = 0; i < numParticle; i++) {
+    var line = $('#line' + i);
+    var pos1 = $('.particle' + i).position();
+    var pos2;
+    for ( x = 1; x < numParticle; x++ ) {
+      pos2 = $('.particle' + x).position();
+    }
+    line.attr('x1',pos1.left).attr('y1',pos1.top).attr('x2',pos2.left).attr('y2',pos2.top).attr('stroke-width',randomizeValues(1,0.1));
+  }
+};*/
 var particleTimelineArray = [];
 function moveParticles() {
   var timelineNumber = 2;
   for (i = 0; i < numParticle; i++) {
     var sectionName = 'section5TL' + timelineNumber;
-    sectionName = new TimelineMax({repeat: -1, delay: 2});
+    sectionName = new TimelineMax({delay: 2, repeat: -1, yoyo: true});
     sectionName.pause();
-    sectionName.fromTo('.particle'+ i, 1 + i / 2, {
-      opacity: 0
+    sectionName.fromTo('.particle'+ i, (2 + i), {
+      opacity: 0,
+      backgroundColor: '#bf0d3e'
     }, {
+      backgroundColor: '#fdb515',
       scale: randomizeValues(2,0.5),
-      top: '+=' + randomizeValuesOnce(300,-150) + 'px',
-      left: '+=' + randomizeValuesOnce(250,-100) + 'px',
+      top: '+=' + randomizeValuesOnce(350,-150) + 'px',
+      left: '+=' + randomizeValuesOnce(350,-150) + 'px',
       opacity: randomizeValues(1,0.2),
-      ease:Power4.easeOut
+      ease:Back.easeOut
     });
     sectionName.to('.particle' + i, 1, {
-      top: '+=' + (moveImgLeftRan2()) + 'px',
-      left: '+=' + (moveImgLeftRan2() * 2) + 'px',
+      backgroundColor: '#fff',
+      opacity: randomizeValues(0.3,0.1),
+      ease:Power2.easeInOut
+    });
+    sectionName.to('.particle' + i, 1, {
       scale: 0.5,
       opacity: 0,
       ease:Power2.easeInOut
@@ -214,11 +243,78 @@ function moveParticles() {
 };
 spawnParticles();
 moveParticles();
+var section5TL01 = new TimelineMax({});
+section5TL01.fromTo('.firstSL', 1, {
+  opacity: 0,
+  scale: randomizeValues(0.2,0.05),
+  rotation: randomizeValues(30,-10),
+  left: randomizeValues(300,-150),
+  top: randomizeValues(150,-150)
+}, {
+  scale: 1,
+  opacity: 1,
+  rotation: -90,
+  left: '-215px',
+  top: '105px',
+  ease:Back.easeOut
+});
+section5TL01.staggerFromTo('.studentListItem', 1, {
+  opacity: 0,
+  scale: randomizeValues(0.2,0.05),
+  rotation: randomizeValues(30,-10),
+  left: randomizeValues(300,-150),
+  top: randomizeValues(150,-150)
+}, {
+  scale: 1,
+  opacity: 1,
+  rotation: 0,
+  left: 0,
+  top: 0,
+  ease:Back.easeOut
+}, 0.5);
+section5TL01.pause();
+var section5TL02 = new TimelineMax({});
+section5TL02.fromTo('.firstPL', 1, {
+  opacity: 0,
+  scale: randomizeValues(0.2,0.05),
+  rotation: randomizeValues(30,-10),
+  left: randomizeValues(300,-150),
+  top: randomizeValues(150,-150)
+}, {
+  scale: 1,
+  opacity: 1,
+  rotation: -90,
+  left: '-215px',
+  top: '105px',
+  ease:Back.easeOut
+});
+section5TL02.staggerFromTo('.parentListItem', 1, {
+  opacity: 0,
+  scale: randomizeValues(0.2,0.05),
+  rotation: randomizeValues(30,-10),
+  left: randomizeValues(300,-150),
+  top: randomizeValues(150,-150)
+}, {
+  scale: 1,
+  opacity: 1,
+  rotation: 0,
+  left: 0,
+  top: 0,
+  ease:Back.easeOut
+}, 0.5);
+section5TL02.pause();
+
+var section6TL = new TimelineMax({});
+section6TL.to('#section6 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
+section6TL.to('#section6 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
+section6TL.to('#section6 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
+section6TL.fromTo('.smForm', 1, {opacity: 0, bottom: '-50px'}, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
   section3TL, section3TL2, section3TL3, section3TL4,
-  section4TL, section4TL2, section4TL3, section5TL
+  section4TL, section4TL2, section4TL3, section5TL,
+  section6TL
 ];
 for ( i = 0; i < allTimelines.length; i++ ) {
   allTimelines[i].pause();
@@ -233,7 +329,7 @@ $('#section1 a').hover(function() {
   TweenMax.to(this, 0.25, {bottom: '0px', ease:Power2.easeInOut});
 });
 $('.animButton').hover(function() {
-  buttonTL.resume();
+  buttonTL.restart();
 }, function() {
   buttonTL.pause();
 });
@@ -267,7 +363,6 @@ $('.s4box').hover(function() {
 
 });
 
-
 var section3HoverText = {
   'newText1': 'We make it a breeze to request different types of documentation from previous schools. Our transcript entry tool saves time on data entry and reduces human error by automatically populating entry fields based on probability by school.',
   'newText2': 'Automatically suggest course schedules based on student and teacher data as well as graduation requirements for specific diploma types, and make individual changes when needed.',
@@ -299,19 +394,32 @@ $('.section3Reload').click(function() {
   }, 400);
 });
 
+$('.studentPortalBtn').click(function(e) {
+  e.preventDefault();
+  $('.parentList').hide();
+  $('.studentList').show();
+  section5TL01.restart();
+});
+$('.parentPortalBtn').click(function(e) {
+  e.preventDefault();
+  $('.studentList').hide();
+  $('.parentList').show();
+  section5TL02.restart();
+});
 
 var $window = $(window);
 var s2dist = $('#section2').offset().top - 20;
 var s3dist = $('#section3').offset().top - 20;
 var s4dist = $('#section4').offset().top - 20;
 var s5dist = $('#section5').offset().top - 20;
+var s6dist = $('#section6').offset().top - 20;
 
 $window.scroll(function() {
   function animateSection(sections, dist) {
     if($window.scrollTop() >= dist) {
-      sections.forEach(function(s) { s.play(); });
+      sections.forEach(function(s) { s.play().timeScale(2); });
     } else {
-      sections.forEach(function(s) { s.reverse(); });
+      sections.forEach(function(s) { s.pause(); });
     }
   }
   animateSection([section2TL, section2TL2], s2dist);
@@ -319,4 +427,5 @@ $window.scroll(function() {
   animateSection([section4TL, section4TL2, section4TL3], s4dist);
   animateSection([section5TL], s5dist);
   animateSection(particleTimelineArray, s5dist);
+  animateSection([section6TL], s6dist);
 });
