@@ -306,8 +306,8 @@ section6TL.to('#section6 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOu
 section6TL.to('#section6 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section6TL.to('#section6 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section6TL.fromTo('.smForm', 1, {opacity: 0, bottom: '-50px'}, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
-section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fdb515', opacity: 0, bottom: '-20px'}, {color: '#fff', bottom: '0px', opacity: '1', ease:Power2.easeInOut}, .25);
-section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fff !important'}, {color: '#fdb515', repeat: -1, repeatDelay: 10, ease:Power2.easeInOut}, .25);
+section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fdb515', opacity: 0, bottom: '-20px'}, {color: '#fff', bottom: '0px', opacity: '1', ease:Back.easeOut}, .25);
+section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fff !important', bottom: '0px'}, {color: '#fdb515', bottom: '-5px', repeat: -1, repeatDelay: 10, ease:Back.easeOut}, .25);
 
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
