@@ -213,6 +213,16 @@ a:focus {
   margin-right: auto;
   position: relative;
 }
+.smSocialRow {
+  position: relative;
+  padding: 4px 8px 3px 8px;
+  outline: 1px solid;
+  margin-right: 10px;
+}
+.smSocialRow:hover {
+  color: #fff !important;
+  outline: 2px solid;
+}
 
 
 /* ANIMATION STYLES */

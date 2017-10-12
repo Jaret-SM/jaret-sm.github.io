@@ -9,7 +9,7 @@ function randomizeValuesOnce(max, min) {
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 function moveImgLeftRan() {
   return randomizeValues(250,1);
@@ -306,6 +306,8 @@ section6TL.to('#section6 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOu
 section6TL.to('#section6 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section6TL.to('#section6 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 section6TL.fromTo('.smForm', 1, {opacity: 0, bottom: '-50px'}, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
+section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fdb515', opacity: 0, bottom: '-20px'}, {color: '#fff', bottom: '0px', opacity: '1', ease:Power2.easeInOut}, .25);
+section6TL.staggerFromTo('.smSocialRow', 1, {color: '#fff !important'}, {color: '#fdb515', repeat: -1, repeatDelay: 10, ease:Power2.easeInOut}, .25);
 
 var allTimelines = [
   buttonTL, section2TL, section2TL2, section2TL3,
@@ -357,7 +359,11 @@ $('.s4box').hover(function() {
 }, function() {
   section4TL3.timeScale(2);
   TweenMax.to($(this).find('p'), 0.5, {scale: 1, ease:Power2.easeInOut});
-
+});
+$('.smSocialRow').hover(function() {
+  section6TL.pause();
+}, function() {
+  section6TL.resume();
 });
 
 var section3HoverText = {
