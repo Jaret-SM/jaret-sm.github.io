@@ -222,7 +222,7 @@ a:focus {
 .smSocialRow:hover {
   color: #fff !important;
   outline: 2px solid;
-  bottom: 0px !important;
+  bottom: -2px !important;
 }
 
 /* ANIMATION STYLES */
