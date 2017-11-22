@@ -1,6 +1,10 @@
 /* TEXT STYLES */
-p {
+p, ul {
   font-size: 1.25em;
+}
+ul {
+  padding-left: 25px;
+  line-height: 2;
 }
 .s3ImgContainer p:hover {
   cursor: pointer;
@@ -25,13 +29,16 @@ a:focus {
   color: #fff;
 }
 .text-darkgray {
-  color: #757b8c;
+  color: #969eb4;
 }
 .text-smr {
   color: #bf0d3e;
 }
 .text-smb {
   color: #5bc6cc;
+}
+.text-smy {
+  color: #fdb515;
 }
 .s5portBtn {
   opacity: 0;
@@ -98,7 +105,7 @@ a:focus {
 }
 .s2ImgContainer img {
   position: absolute;
-  max-height: 300px;
+  max-height: 100px;
   box-shadow: 5px 5px 25px rgba(0,0,0,.4);
 }
 .s2ImgContainer img:hover {
@@ -248,7 +255,6 @@ a:focus {
 .smAnim-lr-0-300 {
   position: relative;
   opacity: 0;
-  left: 300px;
 }
 .smAnim-lr-0-100 {
   position: relative;

@@ -66,34 +66,25 @@ var section2TL = new TimelineMax({});
 section2TL.to('#section2 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
 section2TL.to('#section2 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
 section2TL.to('#section2 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
-section2TL.staggerFromTo('#section2 ul li', 1, {
-  opacity: 0,
-  bottom: '20px'
-}, {
-  opacity: 1,
-  bottom: '0px',
-  ease:Power2.easeInOut
-}, .5)
 section2TL.to('#section2 a', 1, {opacity: '1', ease:Power2.easeInOut});
 var section2TL2 = new TimelineMax({});
 section2TL2.to('.s2Img1', 1, {
-  left: 0,
-  top: 0,
+  left: randomizeValues(100,95),
   opacity: '1',
-  //rotation: randomizeValues(40,-10),
-  delay: 5, ease:Back.easeInOut
+  rotation: randomizeValues(40,-10),
+  delay: 2, ease:Back.easeInOut
 });
 section2TL2.to('.s2Img2', 1, {
-  left: 50,
-  top: '50px',
-  //rotation: randomizeValues(10,-20),
+  left: randomizeValues(100,50),
+  top: '25px',
+  rotation: randomizeValues(10,-20),
   opacity: '1',
   ease:Back.easeInOut
 });
 section2TL2.to('.s2Img3', 1, {
-  left: 100,
-  top: '100px',
-  //rotation: randomizeValues(30,-10),
+  left: randomizeValues(100,25),
+  top: '50px',
+  rotation: randomizeValues(30,-10),
   opacity: '1',
   ease:Back.easeInOut
 });
@@ -199,9 +190,22 @@ var numParticle = 50;
 function spawnParticles() {
   for (i = 0; i < numParticle; i++) {
     var portalParticle = '<div class="portalParticle particle' + i + '"></div>';
+    //var portalLines = makeSVG('line', {x1: 100, y1: 50, x2: 350, y2: 50, stroke: '#fff', 'stroke-width': 0, id: 'line'+i});
     $('.portalBox').append(portalParticle);
-    };
+    //$('.svgBox').append(portalLines);
+  };
 };
+/*function drawLine() {
+  for (i = 0; i < numParticle; i++) {
+    var line = $('#line' + i);
+    var pos1 = $('.particle' + i).position();
+    var pos2;
+    for ( x = 1; x < numParticle; x++ ) {
+      pos2 = $('.particle' + x).position();
+    }
+    line.attr('x1',pos1.left).attr('y1',pos1.top).attr('x2',pos2.left).attr('y2',pos2.top).attr('stroke-width',randomizeValues(1,0.1));
+  }
+};*/
 var particleTimelineArray = [];
 function moveParticles() {
   var timelineNumber = 2;
@@ -328,7 +332,13 @@ $('.animButton').hover(function() {
 }, function() {
   buttonTL.pause();
 });
-
+$('.s2ImgContainer').hover(function() {
+  if ( section2TL2.time() >= 3 ) {
+    section2TL3.play().timeScale(2);
+  }
+}, function() {
+  section2TL3.reverse();
+});
 $('.s3ImgContainer p').hover(function() {
   currentItemHovered = $(this).prev('img');
   TweenMax.to(currentItemHovered, 0.25, {scale: 1, rotation:randomizeValues(20,-10), ease:Power2.easeInOut});
