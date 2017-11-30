@@ -23,6 +23,9 @@ a:hover {
 a:focus {
   outline: 0;
 }
+.smList li {
+  position: relative;
+}
 
 /* COLORS */
 .text-white {
@@ -100,15 +103,26 @@ a:focus {
 }
 
 /* IMAGE STYLES */
+.atiLogo {
+  max-width: 300px;
+  padding: 10px 0 10px 0;
+  position: relative;
+}
+.lmSS {
+  max-width: 225px;
+  position: relative;
+  margin: 0 0 0 10px
+}
 .smLogo {
   max-width: 400px;
 }
-.s2ImgContainer img {
-  position: absolute;
-  max-height: 100px;
+.s2Img {
+  max-height: 200px;
   box-shadow: 5px 5px 25px rgba(0,0,0,.4);
+  margin: 5px;
+  position: relative;
 }
-.s2ImgContainer img:hover {
+.s2Img:hover, .lmSS:hover {
   outline: 2px solid #fff;
 }
 .s3ImgContainer {
@@ -255,6 +269,7 @@ a:focus {
 .smAnim-lr-0-300 {
   position: relative;
   opacity: 0;
+  left: 300px;
 }
 .smAnim-lr-0-100 {
   position: relative;
