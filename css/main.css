@@ -108,21 +108,40 @@ a:focus {
   padding: 10px 0 10px 0;
   position: relative;
 }
+.laptopBG {
+  background: url('../images/smCourses-bg.png') no-repeat center center;
+}
+.phoneBG {
+  background: url('../images/smLM-bg.png') no-repeat center center;
+  background-size: 40%;
+  min-height: 500px;
+}
 .lmSS {
   max-width: 225px;
   position: relative;
   margin: 0 0 0 10px
 }
 .smLogo {
-  max-width: 400px;
+  max-width: 350px;
 }
 .s2Img {
-  max-height: 200px;
-  box-shadow: 5px 5px 25px rgba(0,0,0,.4);
-  margin: 5px;
+  max-width: 100%;
   position: relative;
 }
-.s2Img:hover, .lmSS:hover {
+.s4Img {
+  max-height: 345px;
+  position: relative;
+}
+.s2car {
+  bottom: 20px;
+}
+.carousel-control-prev {
+  left: -75px;
+}
+.carousel-control-next {
+  right: -75px;
+}
+.lmSS:hover {
   outline: 2px solid #fff;
 }
 .s3ImgContainer {
@@ -158,7 +177,7 @@ a:focus {
 
 /* CONTAINER STYLES */
 #smNav {
-  position: absolute;
+  position: relative;
   top: 0px;
   text-align: center;
   width: 100%;
@@ -190,6 +209,11 @@ a:focus {
 }
 .fullScreen {
   height: 100vh;
+}
+@media only screen and (max-width: 668px) {
+  .fullScreen {
+    height: auto;
+  }
 }
 .smDivider {
   height: 1px;

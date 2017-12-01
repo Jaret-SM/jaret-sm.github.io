@@ -59,9 +59,6 @@ homeTL.staggerTo(['.homeSub1','.homeSub2','.homeSub3','.homeSub4','.homeSub5'], 
 homeTL.to('#section1 h1', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
 homeTL.to('#section1 a', 1, {opacity: '1', ease:Power2.easeInOut});
 
-var buttonTL = new TimelineMax({repeat: -1});
-buttonTL.to('.animButton', 0.5, {width: '10%', ease:Power2.easeInOut});
-
 var section2TL = new TimelineMax({});
 section2TL.to('#section2 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
 section2TL.to('#section2 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeInOut});
@@ -74,21 +71,16 @@ section2TL.staggerFromTo('#section2 ul li', 1, {
   right: '0px',
   ease:Power2.easeInOut
 }, .5)
-section2TL.to('#section2 a', 1, {opacity: '1', ease:Power2.easeInOut});
-var section2TL2 = new TimelineMax({});
-section2TL2.staggerFromTo('.s2Img', 1, {
+section2TL.fromTo('#section2 .laptopBG', 1, {
   opacity: 0,
-  bottom: '20px'
+  bottom: '40px'
 }, {
-  delay: 5,
   opacity: 1,
-  bottom: '0px',
+  bottom: '20px',
   ease:Power2.easeInOut
-}, .5)
-var section2TL3 = new TimelineMax({});
-section2TL3.to('.s2Img1', 1, {left: '0px', top: '0px', rotation:0, ease:Back.easeInOut});
-section2TL3.to('.s2Img2', 0.5, {left: '100px', top: '25px', rotation:0, ease:Back.easeInOut});
-section2TL3.to('.s2Img3', 0.5, {left: '200px', top: '50px', rotation:0, ease:Back.easeInOut});
+});
+section2TL.to('#section2 a', 1, {opacity: '1', ease:Power2.easeInOut});
+
 
 var section3TL = new TimelineMax({});
 section3TL.to('#section3 h2', 1, {top: '0px', opacity: '1', ease:Power2.easeInOut});
@@ -125,7 +117,7 @@ section4TL.staggerFromTo('#section4 ul li', 1, {
   ease:Power2.easeInOut
 }, .5)
 section4TL.to('#section4 a', 1, {opacity: '1', ease:Power2.easeInOut});
-section4TL.staggerFromTo('#section4 img', 1, {
+section4TL.staggerFromTo('#section4 .phoneBG', 1, {
   opacity: 0,
   bottom: '20px'
 }, {
@@ -154,25 +146,18 @@ section6TL.to('#section6 p', 1, {bottom: '0px', opacity: '1', ease:Power2.easeIn
 section6TL.to('#section6 .smDivider', 1, {opacity: '1', ease:Power2.easeInOut});
 
 var allTimelines = [
-  buttonTL, section2TL, section2TL2, section2TL3,
-  section3TL, section4TL, section5TL, section6TL
+  section2TL, section3TL,
+  section4TL, section5TL, section6TL
 ];
 for ( i = 0; i < allTimelines.length; i++ ) {
   allTimelines[i].pause();
   allTimelines[i].timeScale(2);
 };
 
-var currentItemHovered;
-
 $('#section1 a').hover(function() {
   TweenMax.to(this, 0.25, {bottom: '5px', ease:Power2.easeInOut});
 }, function() {
   TweenMax.to(this, 0.25, {bottom: '0px', ease:Power2.easeInOut});
-});
-$('.animButton').hover(function() {
-  buttonTL.restart();
-}, function() {
-  buttonTL.pause();
 });
 
 var $window = $(window);
@@ -190,7 +175,7 @@ $window.scroll(function() {
       sections.forEach(function(s) { s.pause(); });
     }
   }
-  animateSection([section2TL, section2TL2], s2dist);
+  animateSection([section2TL], s2dist);
   animateSection([section3TL], s3dist);
   animateSection([section4TL], s4dist);
   animateSection([section5TL], s5dist);
