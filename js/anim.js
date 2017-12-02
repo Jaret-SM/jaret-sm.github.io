@@ -43,12 +43,13 @@ $('a[href^=\\#section]').on('click', function(event){
 	}, 800);
 });
 
+/*
 function makeSVG(tag, attrs) {
   var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
   for (var k in attrs)
     el.setAttribute(k, attrs[k]);
   return el;
-};
+};*/
 
 var homeTL = new TimelineMax({});
 homeTL.staggerTo(['.homeSub1','.homeSub2','.homeSub3','.homeSub4','.homeSub5'], 0.5, {
@@ -138,6 +139,15 @@ section5TL.staggerFromTo('#section5 ul li', 1, {
   right: '0px',
   ease:Power2.easeInOut
 }, .5)
+section5TL.fromTo('#section5 #Layer_1', 1, {
+  scaleX: 0,
+  bottom: '20px',
+}, {
+  bottom: '0px',
+  scaleX: 1,
+  transformOrigin: "50% 50%",
+  ease:Power2.easeInOut
+});
 section5TL.to('#section5 a', 1, {opacity: '1', ease:Power2.easeInOut});
 
 var section6TL = new TimelineMax({});

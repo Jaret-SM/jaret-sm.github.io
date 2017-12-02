@@ -108,6 +108,10 @@ a:focus {
   padding: 10px 0 10px 0;
   position: relative;
 }
+.brainkey {
+  max-height: 400px;
+  position: relative;
+}
 .laptopBG {
   background: url('../images/smCourses-bg.png') no-repeat center center;
 }
@@ -131,6 +135,7 @@ a:focus {
 .s4Img {
   max-height: 345px;
   position: relative;
+  cursor: pointer;
 }
 .s2car {
   bottom: 20px;
@@ -326,4 +331,8 @@ body {
 }
 .stopHover {
   pointer-events: none;
+}
+svg {
+  height:100%;
+  width:100%;
 }
